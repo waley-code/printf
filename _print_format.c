@@ -5,27 +5,38 @@
  * _print_format - print to stdout with specified format
  * @format: conversion specifier
  * @args: arguments to be passed
- * Return: 0 (Success) or 1 (Error)
+ * Return: length of output
 */
 
 int _print_format(char format, va_list args)
 {
+	int n = 0;
+	char *out;
+
 	switch (format)
 		{
 		case 'c':
 			_putchar(va_arg(args, int));
+			n++;
 			break;
 
 		case 's':
-			_print_string(va_arg(args, char *));
+			out = va_arg(args, char *);
+			n += _print_string(out);
 			break;
 
 		case '%':
 			_putchar('%');
+			n++;
+			break;
+
+		case 'd':
+			n += _print_number(va_arg(args, int));
+			break;
 
 		default:
 			break;
 		}
 
-	return (0);
+	return (n);
 }
