@@ -1,9 +1,10 @@
 /**
- * _strlen - counts the length of string.
- * @s: Value string check.
- * Return: String.
- */
-int _strlen(const char *s)
+* _strlen - counts the length of string.
+* @s: Value string check.
+* Return: String.
+*/
+
+int _strlen(char *s)
 {
 	int i;
 
