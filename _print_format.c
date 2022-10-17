@@ -34,6 +34,10 @@ int _print_format(char format, va_list args)
 			n += _print_number(va_arg(args, int));
 			break;
 
+		case 'i':
+			n += _print_number(va_arg(args, int));
+			break;
+
 		default:
 			break;
 		}
