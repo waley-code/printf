@@ -33,6 +33,10 @@ int _print_format(char format, va_list args)
 		case 'd':
 			n += _print_number(va_arg(args, int));
 			break;
+		
+		case 'b':
+			n += to_binary(va_arg(args, unsigned int));
+			break;
 
 		default:
 			break;
