@@ -3,17 +3,18 @@
 /**
  * _print_string - print a string using the defined functions
  * @str: The string to be printed
- * Return: 0 for success, 1 for error
+ * Return: Length of output string
 */
 
 int _print_string(char *str)
 {
 	int i = 0;
+	int n = _strlen(str);
 
-	for (; i < _strlen(str); i++)
+	for (; i < n; i++)
 	{
 		_putchar(str[i]);
 	}
 
-	return (0);
+	return (n);
 }
