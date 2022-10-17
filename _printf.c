@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	int skipNext = 0;
 
 	va_start(args, format);
-	n++;
+
 	for (; i < _strlen(format); i++)
 	{
 		if (skipNext)
@@ -30,9 +30,10 @@ int _printf(const char *format, ...)
 		{
 			next = format[i + 1];
 			skipNext = 1;
-			_print_format(next, args);
+			n += _print_format(next, args);
 			continue;
 		}
+		n++;
 		_putchar(c);
 	}
 

@@ -11,12 +11,8 @@ int _strlen(const char *s);
 
 int _print_string(char *str);
 
-int _print_format(char format, va_list args);
+int _print_number(int n);
 
-typedef union {
-	int i;
-	char c;
-	char *s;
-} any;
+int _print_format(char format, va_list args);
 
 #endif /* MAIN_H */
