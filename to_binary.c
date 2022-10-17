@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 unsigned to_binary(unsigned int n)
 {
     // array to store binary number
