@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdarg.h>
 
+int _matchSpec(char c);
+
 /**
  * _printf - prints a formatted string to stdout
  * @format: The format of the output
@@ -12,25 +14,36 @@ int _printf(const char *format, ...)
 {
 	int i = 0;
 	int n = 0;
-	char c, next;
+	int x = 0;
+	char c;
 	va_list args;
-	int skipNext = 0;
+	int sp = 0;
+	int si = 0;
 
 	va_start(args, format);
 
 	for (; i < _strlen(format); i++)
 	{
-		if (skipNext)
-		{
-			skipNext = 0;
-			continue;
-		}
 		c = format[i];
 		if (c == '%')
 		{
-			next = format[i + 1];
-			skipNext = 1;
-			n += _print_format(next, args);
+			x = i;
+			for (x++; x < _strlen(format); x++)
+			{
+				if (format[x] == '-')
+					si = 2;
+				else if (format[x] == '+')
+					si = 1;
+				if (format[x] >= '0' && format[x] <= '9')
+					sp = format[x] - '0';
+				if (_matchSpec(format[x]))
+				{
+					n += _print_format(format[x], args, sp, si);
+					i = x;
+					break;
+				}
+				n++;
+			}
 			continue;
 		}
 		n++;
@@ -39,4 +52,20 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 	return (n);
+}
+
+int _matchSpec(char c)
+{
+	char arr[6] = "cs%dbi";
+	int i = 0;
+
+	for (; i < 6; i++)
+	{
+		if (c == arr[i])
+		{
+			return (1);
+		}
+	}
+
+	return (0);
 }

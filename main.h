@@ -3,20 +3,27 @@
 
 #include <stdarg.h>
 
+#ifndef SIZE
+#define SIZE 32
+
 int _printf(const char *format, ...);
 
 int _putchar(char c);
 
 int _strlen(const char *s);
 
-int _print_string(char *str);
+int _print_string(char *str, int sp, int si);
 
 int _print_number(int n);
 
-int _print_format(char format, va_list args);
+int _print_format(char format, va_list args, int sp, int si);
 
 int to_binary(int n);
 
 int _pow(int x, int y);
+
+char *_itoa(int value, char result[SIZE]);
+
+#endif
 
 #endif /* MAIN_H */
