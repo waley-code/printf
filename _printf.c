@@ -2,6 +2,7 @@
 #include <stdarg.h>
 
 int _matchSpec(char c);
+void slice(const char *str, char *result, int start, int end);
 
 /**
  * _printf - prints a formatted string to stdout
@@ -19,6 +20,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int sp = 0;
 	int si = 0;
+	char result[SIZE];
 
 	va_start(args, format);
 
@@ -34,10 +36,10 @@ int _printf(const char *format, ...)
 					si = 2;
 				else if (format[x] == '+')
 					si = 1;
-				if (format[x] >= '0' && format[x] <= '9')
-					sp = format[x] - '0';
 				if (_matchSpec(format[x]))
 				{
+					slice(format, result, i+1, x);
+					sp = _atoi(result);
 					n += _print_format(format[x], args, sp, si);
 					i = x;
 					break;
@@ -68,4 +70,9 @@ int _matchSpec(char c)
 	}
 
 	return (0);
+}
+
+void slice(const char *str, char *result, int start, int end)
+{
+	_strncpy(result, str + start, end - start);
 }
