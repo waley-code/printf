@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					si = 1;
 				if (_matchSpec(format[x]))
 				{
-					slice(format, result, i+1, x);
+					slice(format, result, i + 1, x);
 					sp = _atoi(result);
 					n += _print_format(format[x], args, sp, si);
 					i = x;
@@ -56,6 +56,12 @@ int _printf(const char *format, ...)
 	return (n);
 }
 
+/**
+ * _matchSpec - match to specifiers
+ * @c: Character
+ * Return: 1 or 0 for if matched or not
+*/
+
 int _matchSpec(char c)
 {
 	char arr[6] = "cs%dbi";
@@ -71,6 +77,15 @@ int _matchSpec(char c)
 
 	return (0);
 }
+
+/**
+ * slice - get part of a string
+ * @str: string to splice
+ * @result: spliced string
+ * @start: index to start from
+ * @end: final index
+ * Return: Nothing
+*/
 
 void slice(const char *str, char *result, int start, int end)
 {

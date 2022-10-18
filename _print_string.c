@@ -3,6 +3,8 @@
 /**
  * _print_string - print a string using the defined functions
  * @str: The string to be printed
+ * @sp: length of string
+ * @si: mathematical sign
  * Return: Length of output string
 */
 
@@ -19,7 +21,7 @@ int _print_string(char *str, int sp, int si)
 	else
 		lead = sp - n;
 
-	if (((si%3) == 0) && (si > 0))
+	if (((si % 3) == 0) && (si > 0))
 		lead--;
 
 	if (sp > n)

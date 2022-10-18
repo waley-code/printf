@@ -1,9 +1,12 @@
 #include "main.h"
+
 /**
- * C++ version 0.4 char* style "itoa":
- * Written by Lukás Chmela
- * Released under GPLv3.
- */
+ * _itoa - converts integer to string
+ * @value: integer to convert
+ * @str: string to convert to
+ * Return: string
+*/
+
 char *_itoa(int value, char str[SIZE])
 {
 	int k = value;
@@ -20,7 +23,7 @@ char *_itoa(int value, char str[SIZE])
 	while (k > 0)
 	{
 		k /= 10;
-        i++;
+		i++;
 	}
 
 	k = value;
