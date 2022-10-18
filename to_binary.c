@@ -2,22 +2,32 @@
 
 /**
 * to_binary - converts to binary.
-* @n: Value argument to chonvert.
-* Return: number of caracters.
+* @n: Value argument to convert.
+* Return: binary value.
 */
 
-unsigned to_binary(unsigned int n)
+int to_binary(int n)
 {
-    int binaryNum[32];
-    int i = 0;
-    int j = i - 1;
-    
-    while (n > 0) {
-        binaryNum[i] = n % 2;
-        n = n / 2;
-        i++;
-    }
-    for (; j >= 0; j--)
-        _putchar(binaryNum[j]);
-    return (i);
+	int binaryNum = 0;
+	int i = 0;
+	int x = 1;
+
+	if (n == 0)
+		return (0);
+
+	if (n < 0)
+	{
+		x = -1;
+		n = n * -1;
+	}
+
+	while (n > 0)
+	{
+		binaryNum += (n % 2) * _pow(10, i);
+		n = n / 2;
+		i++;
+	}
+
+	binaryNum = binaryNum * x;
+	return (binaryNum);
 }

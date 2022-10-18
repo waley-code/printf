@@ -15,6 +15,8 @@ int _print_number(int n);
 
 int _print_format(char format, va_list args);
 
-unsigned to_binary(unsigned int n);
+int to_binary(int n);
+
+int _pow(int x, int y);
 
 #endif /* MAIN_H */
