@@ -24,6 +24,10 @@ int _pow(int x, int y);
 
 char *_itoa(int value, char result[SIZE]);
 
+int _atoi(char *s);
+
+char *_strncpy(char *dest, const char *src, int n);
+
 #endif
 
 #endif /* MAIN_H */
