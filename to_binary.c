@@ -2,7 +2,7 @@
 
 unsigned to_binary(unsigned int n)
 {
-    // array to store binary number
+    //array to store binary number
     int binaryNum[32];
     // counter for binary array
     int i = 0;
