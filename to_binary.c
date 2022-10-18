@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+* to_binary - converts to binary.
+* @n: Value argument to chonvert.
+* Return: number of caracters.
+*/
+
 unsigned to_binary(unsigned int n)
 {
     //array to store binary number
