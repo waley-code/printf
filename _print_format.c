@@ -4,6 +4,8 @@
  * _print_format - print to stdout with specified format
  * @format: conversion specifier
  * @args: arguments to be passed
+ * @sp: length of string
+ * @si: mathematical sign
  * Return: length of output
 */
 int _print_format(char format, va_list args, int sp, int si)
@@ -29,17 +31,17 @@ int _print_format(char format, va_list args, int sp, int si)
 
 		case 'd':
 			_itoa(va_arg(args, int), result);
-			n += _print_string(result, sp, si*3);
+			n += _print_string(result, sp, si * 3);
 			break;
 
 		case 'b':
 			_itoa(to_binary(va_arg(args, int)), result);
-			n += _print_string(result, sp, si*3);
+			n += _print_string(result, sp, si * 3);
 			break;
 
 		case 'i':
 			_itoa(va_arg(args, int), result);
-			n += _print_string(result, sp, si*3);
+			n += _print_string(result, sp, si * 3);
 			break;
 
 		default:

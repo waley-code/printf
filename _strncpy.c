@@ -4,7 +4,6 @@
  * @dest: string
  * @src: string
  * @n: bytes
- *
  * Return: dest
  */
 char *_strncpy(char *dest, const char *src, int n)
