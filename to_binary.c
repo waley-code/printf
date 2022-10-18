@@ -4,7 +4,7 @@ unsigned to_binary(unsigned int n)
 {
     //array to store binary number
     int binaryNum[32];
-    //counter for binary array
+    //counting binary array
     int i = 0;
     while (n > 0) {
         //store of remainder in binary array
