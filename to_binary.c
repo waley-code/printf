@@ -12,7 +12,7 @@ unsigned to_binary(unsigned int n)
         n = n / 2;
         i++;
     }
-    // printing binary array in reverse order
+    //printing binary array in reverse order
     for (int j = i - 1; j >= 0; j--)
         _putchar(binaryNum[j]);
     return (i);
