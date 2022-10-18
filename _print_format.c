@@ -6,10 +6,10 @@
  * @args: arguments to be passed
  * Return: length of output
 */
-int _print_format(char format, va_list args)
+int _print_format(char format, va_list args, int sp, int si)
 {
 	int n = 0;
-	char *out;
+	static char result[SIZE];
 
 	switch (format)
 		{
@@ -19,8 +19,7 @@ int _print_format(char format, va_list args)
 			break;
 
 		case 's':
-			out = va_arg(args, char *);
-			n += _print_string(out);
+			n += _print_string(va_arg(args, char *), sp, si);
 			break;
 
 		case '%':
@@ -29,15 +28,18 @@ int _print_format(char format, va_list args)
 			break;
 
 		case 'd':
-			n += _print_number(va_arg(args, int));
+			_itoa(va_arg(args, int), result);
+			n += _print_string(result, sp, si*3);
 			break;
 
 		case 'b':
-			n += _print_number(to_binary(va_arg(args, unsigned int)));
+			_itoa(to_binary(va_arg(args, int)), result);
+			n += _print_string(result, sp, si*3);
 			break;
 
 		case 'i':
-			n += _print_number(va_arg(args, int));
+			_itoa(va_arg(args, int), result);
+			n += _print_string(result, sp, si*3);
 			break;
 
 		default:
